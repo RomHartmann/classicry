@@ -76,8 +76,8 @@ def check_file(sInput, iResample, bSave, sCutDir):
     lAggregatedValues = [round(y,2) for (y,x) in sorted(zip(dAggregatedCries.values() ,dAggregatedCries.keys()), reverse=True)]
     
     
-    print "---aggregated:  ", sType, lAggregatedNames, lAggregatedValues
-    print "true:false", iTrue, iFalse
+    #print "---aggregated:  ", sType, lAggregatedNames, lAggregatedValues
+    #print "true:false", iTrue, iFalse
     
     return iTrue, iFalse
     
@@ -127,7 +127,7 @@ def check_all(iResample):
 
 oBegin = dt.now()
 
-iResample=None
+iResample=8000
 print "\n Resample Rate:  ", iResample
 
 create_db(iResample)

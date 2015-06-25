@@ -39,12 +39,6 @@ def audio2array(sDir, iResample=None):
     aTime = np.array( [float(i)/iSampleRate for i in range(len(aAudio))] )
     
     if iResample != None:
-        #from scipy import signal
-        #iSecs = len(aTime)/iSampleRate
-        #aAudio = signal.resample(aAudio, iSecs*iResample)
-        #aTime = signal.resample(aTime, iSecs*iResample)
-        #iSampleRate = iResample
-        
         aAudio = downsample(aAudio, iSampleRate, iResample)
         aTime = downsample(aTime, iSampleRate, iResample)
         iSampleRate = iResample
