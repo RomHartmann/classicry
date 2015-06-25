@@ -127,7 +127,7 @@ def check_all(iResample):
 
 oBegin = dt.now()
 
-iResample=22000
+iResample=None
 print "\n Resample Rate:  ", iResample
 
 create_db(iResample)

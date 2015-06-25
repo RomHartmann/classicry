@@ -37,8 +37,6 @@ def isolate_cries(sDir, iResample = 8000, bSave = False, sCutDir=None, iSigmaSec
     
     
     
-    
-    
     #---Get minima and filter
     #intersecion of derivative with zero line (get maxima and minima)
     aZero = np.zeros(np.shape(aSecondDeriv))
@@ -76,8 +74,6 @@ def isolate_cries(sDir, iResample = 8000, bSave = False, sCutDir=None, iSigmaSec
     
     
     
-    
-    
     #cut up audio according to minima indeces
     iMin = 1
     iCut = 1
@@ -85,20 +81,11 @@ def isolate_cries(sDir, iResample = 8000, bSave = False, sCutDir=None, iSigmaSec
     laAudios = []
     laCorrs = []
     
-    ##TODO remove
-    #lKeep = []
-    #lThrow = []
-    #iMax = np.max(aCorr)
-    #lStart = []
     
     while iMin < len(aMinimaIndecesFilt):
         iStart = aMinimaIndecesFilt[iMin -1]
         iEnd = aMinimaIndecesFilt[iMin]
         
-        ##TODO remove
-        #iMean = iStart + (iEnd-iStart)/2
-        #iMeanTime = iMean/iSampleRate
-        #lStart.append(iStart/iSampleRate)
         
         aAudioCut = np.array(aAudio[iStart : iEnd])
         aCorrAudioCut = np.array(aCorr[iStart : iEnd])
@@ -119,59 +106,9 @@ def isolate_cries(sDir, iResample = 8000, bSave = False, sCutDir=None, iSigmaSec
             
             iCut += 1
             
-            ##TODO remove
-            #lKeep.append(iMeanTime)
-        #else:
-            #lThrow.append(iMeanTime)
         
         
         iMin += 1
-    
-    
-    
-    
-    #def normalize(aArray):
-        #iMax = np.max(aArray)
-        #return [i/iMax for i in aArray]
-    
-    #iMax = 1
-    #aCorr = normalize(aCorr)
-    #aAudio = normalize(aAudio)
-    #aFirstDeriv = normalize(aFirstDeriv)
-    #aSecondDeriv = normalize(aSecondDeriv)
-    ##aOrigAudio = normalize(aOrigAudio)
-    
-    #import matplotlib.pyplot as plt
-    #plt.figure(1)
-    
-    #sType = sDir.split('/')[-1].split('_')[0].split('-')[0]
-    
-    #plt.subplot(2,1,1)
-    #plt.title('{}, Blue:  Corr, Red:  Audio,   green:original'.format(sType))
-    #plt.plot(aTime, aCorr, 'b')
-    #plt.plot(aTime, aAudio, 'r')
-    #plt.plot(aTime, aOrigAudio, 'g')
-    #plt.plot(lKeep, [iMax/3 for i in range(len(lKeep))], 'g^')
-    #plt.plot(lThrow, [iMax/3 for i in range(len(lThrow))], 'rx')
-    #plt.plot(lStart, [iMax/50 for i in range(len(lStart))], 'yo')
-    
-    ##print np.max(aOrigAudio)
-    #plt.subplot(2,1,2)
-    #plt.plot(aOrigAudioCut)
-    
-    ##plt.subplot(2,1,2)
-    ##plt.title('Green: Orig, Blue:  1st, Red:  2nd')
-    ##plt.plot(aTime, aCorr, 'g')
-    ##plt.plot(aTime, aFirstDeriv, 'b')
-    ##plt.plot(aTime, aSecondDeriv, 'r')
-    ##plt.plot(lKeep, [0 for i in range(len(lKeep))], 'g^')
-    ##plt.plot(lThrow, [0 for i in range(len(lThrow))], 'rx')
-    ##plt.plot(lStart, [0 for i in range(len(lStart))], 'yo')
-    
-    
-    #plt.show()
-    
-    
     
     
     

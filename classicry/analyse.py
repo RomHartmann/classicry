@@ -133,38 +133,6 @@ def analyse_cry(xRec, xDB):
     
     
     
-    #TODO remove
-    #if True:
-        #import matplotlib.pyplot as plt
-        #plt.figure(1)
-        
-        #plt.subplot(2,2,1)
-        #plt.title('Original signals (red:  Rec    green: {})'.format(sDBCry))
-        #plt.plot(aRecTime_NoShift, aRecAudio, color="r")
-        #plt.plot(aDBTime_NoShift, aDBAudio, color="g")
-        
-        #plt.subplot(2,2,2)
-        #plt.title('peak correlations with standard deviation of {0} seconds'.format(0.001))
-        #plt.plot(aRecTime_NoShift, aRecCorr_NoShift, color="r")
-        #plt.plot(aDBTime_NoShift, aDBCorr_NoShift, color="g")
-        
-        #plt.subplot(2,2,3)
-        #plt.title('Shifted (correlated) signals')
-        #plt.plot(aRecTime, aRec, color="r")
-        #plt.plot(aDBTime, aDB, color="g")
-        
-        #plt.subplot(2,2,4)
-        #plt.title('Correlation between 2 signals.    misfit= {0}     Area = {1}'.format(iMisfit, iCorrArea))
-        #plt.plot(aCorrTime, aCorr)
-        
-        
-        #plt.show()
-    
-    
-    
-    
-    
-    
     return iMisfit, iCorrArea
 
 
