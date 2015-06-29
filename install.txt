@@ -1,6 +1,0 @@
-TODO:    add setup.py
-
-
-pip install numpy
-pip install scipy
-
