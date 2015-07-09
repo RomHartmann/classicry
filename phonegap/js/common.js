@@ -29,6 +29,7 @@ common.max = function(l) {
 }
 
 common.sum = function(l) {
+    //return sum of list
     iSum = 0;
     for (var i=0; i<l.length; i++) {
         iSum += l[i];
@@ -38,6 +39,7 @@ common.sum = function(l) {
 
 
 common.colour_scheme = function(iVal, iMax, iMin) {
+    //creates the colorsheme based on confidence levels
     var iRed = 0;
     var iGreen = 0;
     var iBlue = 0;
@@ -66,13 +68,71 @@ common.colour_scheme = function(iVal, iMax, iMin) {
 }
 
 
-common.showAlert: function (message, title) {
-        if (navigator.notification) {
-            navigator.notification.alert(message, null, title, 'OK');
-        } else {
-            alert(title ? (title + ": " + message) : message);
-        }
-    },
+common.showAlert = function(message, title) {
+    //Uses the phones native alert system if possible
+    if (navigator.notification) {
+        navigator.notification.alert(message, null, title, 'OK');
+    } else {
+        alert(title ? (title + ": " + message) : message);
+    }
+}
+
+
+common.details_in = function() {
+    //animate the interpretation details in 
+    $("#interp_details_window").animate({
+        left: '10%'
+    }, 200);
+    $("#overlay").fadeIn(200)
+}
+
+
+common.details_out = function() {
+    //animate the interpretation details out 
+    $("#interp_details_window").animate({
+        left: '-100%'
+    }, 100);
+    $("#overlay").fadeOut(100)
+}
+
+
+
+common.options_in = function() {
+    //animate the options menu in 
+    $("#options_menu").animate({
+        width: '50%',
+        height: '50%',
+        top: '40px'
+    }, 200);
+    $("#overlay").fadeIn(200)
+}
+
+
+common.options_out = function() {
+    //animate the options menu out 
+    $("#options_menu").animate({
+        width: '0%',
+        height: '0%',
+        top: '10px'
+    }, 100);
+    $("#overlay").fadeOut(100)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

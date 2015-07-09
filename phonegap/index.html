@@ -2,12 +2,13 @@
 <head>
     <title>Cry Interpretation</title>
     
-    <!--phonegap buil specific-->
+    <!--phonegap buil specific (at beginning)-->
     <script src="phonegap.js"></script>
     
     <!--additional libraries js-->
     <script type="text/javascript" src="lib/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="lib/handlebars.js"></script>
+    
     
     <!--additional libraries css-->
     
@@ -20,6 +21,11 @@
     <!--app css-->
     <link rel="stylesheet" type="text/css" href="css/classicry.css">
     
+    
+    <!--jquery mobile code at the end-->
+    <script type="text/javascript" src="lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+
     
     
     
@@ -45,6 +51,12 @@
         {{/each}} /}}       //the '/}}' at the end does nothing.  There to fix kate formatting. 
     </script>
     
+    <script id="interp_details_handlebars" type="text/x-handlebars-template">
+        <h3>{{sType}}</h3>
+        <p>{{sStats}}</p>
+        <p>{{sTips}}</p>
+    </script>
+    
     
 </head>
 
@@ -64,6 +76,24 @@
     
     <div id="advert">
         Advert
+    </div>
+    
+    <div id="overlay" class="overlay"></div>
+    
+    
+    <div id="interp_details_window">
+        <div id="interp_details_text"></div>
+    </div>
+    
+    <div id="options_menu">
+        <ul>
+            <li>help</li>
+            <li>font</li>
+            <li>background</li>
+            <li>record_length</li>
+            <li>share</li>
+            <li>donate</li>
+        </ul>
     </div>
     
 </body>
