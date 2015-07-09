@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns       = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "org.coenraets.employeedirectory"
         versionCode = "10"
         version     = "1.1.0">
  
@@ -13,16 +12,16 @@
         list of the most likely causes for your baby's complaints.
     </description>
  
-    <author href="http://coenraets.org" email="romhartmann@gmail.com">
+    <author email="romhartmann@gmail.com">
         Roman Hartmann
     </author>
  
-    <feature name="http://api.phonegap.com/1.0/camera"/>
-    <feature name="http://api.phonegap.com/1.0/contacts"/>
+<!--     <feature name="http://api.phonegap.com/1.0/camera"/> -->
+<!--     <feature name="http://api.phonegap.com/1.0/contacts"/> -->
     <feature name="http://api.phonegap.com/1.0/file"/>
-    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+<!--     <feature name="http://api.phonegap.com/1.0/geolocation"/> -->
     <feature name="http://api.phonegap.com/1.0/media"/>
-    <feature name="http://api.phonegap.com/1.0/network"/>
-    <feature name="http://api.phonegap.com/1.0/notification"/>
+<!--     <feature name="http://api.phonegap.com/1.0/network"/> -->
+<!--     <feature name="http://api.phonegap.com/1.0/notification"/> -->
  
 </widget>

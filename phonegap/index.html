@@ -1,0 +1,84 @@
+<html>
+<head>
+    <title>Cry Interpretation</title>
+    
+    <!--phonegap buil specific-->
+    <script src="phonegap.js"></script>
+    
+    <!--additional libraries js-->
+    <script type="text/javascript" src="lib/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="lib/handlebars.js"></script>
+    
+    <!--additional libraries css-->
+    
+    
+    
+    <!--app js code-->
+    <script type="text/javascript" src="js/classicry.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    
+    <!--app css-->
+    <link rel="stylesheet" type="text/css" href="css/classicry.css">
+    
+    
+    
+    
+    <!--handlebars scripts-->
+    <script id="interp_list_handlebars" type="text/x-handlebars-template">
+        <tr><td>
+            <div><table class="inside_table">
+                <tr>
+                    <th>Interpretation</th>
+                    <th>Confidence</th>
+                </tr>
+            </table></div>
+        </td></tr>
+        {{#each this}}
+            <tr><td>
+                <div class="cry_row" style="background:{{sColor}}"><table class="inside_table">
+                    <tr>
+                        <td>{{sCry}}</td>
+                        <td>{{sConfidence}}</td>
+                    </tr>
+                </table></div>
+            </td></tr>
+        {{/each}} /}}       //the '/}}' at the end does nothing.  There to fix kate formatting. 
+    </script>
+    
+    
+</head>
+
+
+
+<body>
+    <div id="logo">v_v</div>
+    <h3 id="title">Baby Cry Interpreter</h3>
+    <div id="options">...</div>
+    
+    <div id="record">Record Cry</div>
+    <button id="stop_record">Stop Record</button>
+    
+    <div id="results">
+        <table id="results_table"></table>
+    </div>
+    
+    <div id="advert">
+        Advert
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

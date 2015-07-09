@@ -1,32 +1,76 @@
 $(document).ready(function () {
     
-    $("#record").on('click', function() {
-        alert('Recording 5 seconds at 8khz')
-    })
+    
     
     //values returned from backend
-    lsCries = []
-    liConfidence = []
-    for (var i=0; i<5; i++) {
-        lsCries.push('Cry '+ (i+1))
-        liConfidence.push(10 - (5*i))
-    }
+    lsCries = ['hungry', 'burp', 'discomfort', 'gas', 'sleepy']
+    liConfidence = [16.97, 2.6, -3.67, -7.52, -8.38]
+    
+    lsCries = ['hungry', 'gas', 'sleepy', 'discomfort', 'burp']
+    liConfidence = [27.18, 12.76, -1.05, -17.98, -20.93]
+    
+    
+    
     
     //set colourscheme depending on cry's condidence
     lsColors = []
-    iMin = min(liConfidence)
-    iMax = max(liConfidence)
+    iMin = common.min(liConfidence)
+    iMax = common.max(liConfidence)
     liConfidence.forEach(function(iConf) {
-        dColors = colour_scheme(iConf, iMax, iMin)
+        dColors = common.colour_scheme(iConf, iMax, iMin)
         iRed = Math.floor(dColors['iRed']*255);
         iBlue = Math.floor(dColors['iGreen']*255);
         iGreen = Math.floor(dColors['iBlue']*255);
-        lsColors.push('rgb('+iRed+','+iBlue+','+iGreen+')')
+        lsColors.push('rgba('+iRed+','+iBlue+','+iGreen+', 0.75)')
     })
     
     
     
     
+    //initialize record functionality
+//     var oSource = audio_context.createMediaStreamSource(stream);
+//     var oRec = new Recorder(oSource);
+
+    
+    
+    create_handlebars()
+    button_presses()
+    
+})
+
+
+
+
+
+var button_presses = function() {
+    
+    $("#record").on('click', function() {
+        common.showAlert('Recording 5 seconds at 8khz')
+    })
+    
+    $("#stop_record").on('click', function() {
+        alert('Stahp')
+    })
+    
+    
+    $("#options").on('click', function() {
+        alert('This should open options:  help, buy app, font, background, record length')
+    })
+    
+    $(".cry_row").on('click', function() {
+//         alert('this should bring up a window with info, help and advice on said cry\
+//         burp: eh\
+//         discomfort: heh\
+//         gas: eair\
+//         hungry: neh\
+//         sleepy: owh')
+    })
+}
+
+
+
+
+var create_handlebars = function() {
     //handlebars for table
     var ldContext = [];
     for (var i=0; i<lsCries.length; i++) {
@@ -48,79 +92,19 @@ $(document).ready(function () {
     
     $('#results_table').html(sHTML)
     
-    
-    
-    
-    
-})
-
-
-
-
-
-var keys = function(d) {
-    //gets the dictionary keys as a list
-    var l = [];
-    for (var x in d) {
-        l.push(x);
-    }
-    return l
 }
 
 
-var values = function(d) {
-    //gets the dictionary values as a list
-    var l = [];
-    for (var x in d) {
-        l.push(d[x])
-    }
-    return l
-}
-
-var min = function(l) {
-    return Math.min.apply(null, l);
-}
-
-var max = function(l) {
-    return Math.max.apply(null, l);
-}
-
-var sum = function(l) {
-    iSum = 0;
-    for (var i=0; i<l.length; i++) {
-        iSum += l[i];
-    }
-    return iSum;
-}
 
 
-var colour_scheme = function(iVal, iMax, iMin) {
-    var iRed = 0;
-    var iGreen = 0;
-    var iBlue = 0;
-    
-    var iMaxNorm = iVal/iMax;
-    var iMinNorm = iVal/iMin;
-    
-    if (iVal>=iMin && iVal<0){
-        iRed = iMinNorm;
-        iGreen = 0;
-        iBlue = 1 - iMinNorm;
-    }
-    if (iVal>=0 && iVal<=iMax){
-        iRed = 0;
-        iGreen = iMaxNorm;
-        iBlue = 1 - iMaxNorm;
-    }
-    
-    dRet = {
-        'iRed': iRed, 
-        'iGreen': iGreen, 
-        'iBlue': iBlue
-    }
-    
-    return dRet;
-}
+
+
+
+
+
+
+
+
 
 
 

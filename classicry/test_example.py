@@ -146,7 +146,7 @@ print "\n Resample Rate:  ", iResample
 #create_db(iResample)
 #print 'Create DB Time:  ', dt.now() - oBegin
 
-sCry = "baby-crying-01"
+sCry = "baby-crying-03"
 sMp3 = '{}/unclassified_cries/mp3s/{}.mp3'.format(sWorkingDir, sCry)
 sInput = '{}/unclassified_cries/{}.wav'.format(sWorkingDir, sCry)
 from pydub import AudioSegment
